@@ -1,0 +1,12 @@
+<view class="uni-swipe-action-item" :style="{ backgroundColor: backgroundColor }">
+	<view class="uni-swipe-action-item__container" :class="{ 'uni-swipe-action-item--hover': isHover }">
+		<view class="uni-swipe-action-item__content" :style="{ transform: 'translateX(' + translateX + 'px)' }" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+			<slot />
+		</view>
+		<view class="uni-swipe-action-item__btn-group" :style="{ width: btnGroupWidth + 'px' }">
+			<view v-for="(item, index) in options" :key="index" class="uni-swipe-action-item__btn" :style="{ backgroundColor: item.style && item.style.backgroundColor ? item.style.backgroundColor : '#C7C6CD', width: item.width ? item.width : '70px' }" @click="onClick(item, index)">
+				<text class="uni-swipe-action-item__btn-text" :style="{ color: item.style && item.style.color ? item.style.color : '#FFFFFF' }">{{ item.text }}</text>
+			</view>
+		</view>
+	</view>
+</view> 
